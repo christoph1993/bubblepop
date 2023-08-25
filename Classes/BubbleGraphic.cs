@@ -5,13 +5,13 @@ namespace bubblepop
     public partial class BubbleGraphics : View, IDrawable
     {
         private static Random _random = new Random();
-        private static double offSet = (double)Consts.ScreenHeight * 0.005;
+        private static double offSet = (double)Consts.ScreenHeight * 0.0075;
 
         private bool isUpdating = false;
 
 
         #region Private Properties
-        private List<Bubble> Bubbles = new();
+        private HashSet<Bubble> Bubbles = new();
         #endregion
 
         #region Initialisers
@@ -115,7 +115,7 @@ namespace bubblepop
         public void UpdateBubbles(bool ascending = true)
         {
             isUpdating = true;
-            List<Bubble> removeBubbles = new();
+            HashSet<Bubble> removeBubbles = new();
             
             int yOffset = (ascending ? -1 : 1) * (int)(Math.Round(offSet, 0, MidpointRounding.AwayFromZero)); // Change in Y coordinate
             foreach(var bubble in Bubbles)
@@ -127,7 +127,7 @@ namespace bubblepop
                 if (bubble.BubbleState == BubbleState.Gone || bubble.BubbleState == BubbleState.Popped)
                     removeBubbles.Add(bubble);
             }
-            Bubbles.RemoveAll(b => removeBubbles.Contains(b));
+            Bubbles.RemoveWhere(b => removeBubbles.Contains(b));
             isUpdating = false;
         }
         #endregion
