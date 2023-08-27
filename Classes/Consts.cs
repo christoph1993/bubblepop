@@ -16,5 +16,11 @@ namespace bubblepop
 
         public static readonly float DefaultBubbleRadius = 20f;
         public static readonly int MaxBubblePopStep = 5;
+        public static readonly int DefaultImageWidth = 128;
+        public static readonly int DefaultImageHeight = 128;
+
+        public static readonly string BubbleImagePath = "Resources\\Bubble";
+        public static readonly string BubbleImageFile = "bubble-fill.svg";
+        public static readonly string BubblePoppedImageFile = "bubble-popped.svg";
     }
 }
