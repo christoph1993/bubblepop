@@ -22,5 +22,7 @@ namespace bubblepop
         public static readonly string BubbleImagePath = "Resources\\Bubble";
         public static readonly string BubbleImageFile = "bubble-fill.svg";
         public static readonly string BubblePoppedImageFile = "bubble-popped.svg";
+
+        public static readonly string SVGTransformRegexPattern = @"(\W+)\(.*\)$";
     }
 }

@@ -32,7 +32,7 @@ public class BubbleView : GraphicsView
 
 	void OnBubbleTap(object sender, TappedEventArgs e)
 	{
-		var point = e.GetPosition(this);
+		var point = e.GetPosition(this.Parent);
 		if (!point.HasValue)
 			return;
 		((BubbleGraphics)Drawable).PopBubble(point.Value);
